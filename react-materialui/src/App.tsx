@@ -1,11 +1,12 @@
-import Label from "./shared/components/Label";
+import { BrowserRouter } from "react-router-dom";
+import { AppRoutes } from "./routes";
 
-function App() {
+export const App = () => {
   return (
-    <div>
-      <Label>testando</Label>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
