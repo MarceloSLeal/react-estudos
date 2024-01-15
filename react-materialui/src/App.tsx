@@ -1,4 +1,4 @@
-import Label from "./components/Label";
+import Label from "./shared/components/Label";
 
 function App() {
   return (
