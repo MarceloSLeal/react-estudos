@@ -1,8 +1,7 @@
 import { Button } from "@mui/material";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDrawerContext } from "../shared/contexts";
-import React, { useEffect } from "react";
-import { Contacts } from "@mui/icons-material";
+import { useEffect } from "react";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LocationCityOutlinedIcon from "@mui/icons-material/LocationCityOutlined";
 
