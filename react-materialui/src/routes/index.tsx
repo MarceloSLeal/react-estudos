@@ -38,18 +38,6 @@ export const AppRoutes = () => {
           </Button>
         }
       />
-      <Route
-        path="/cidades"
-        element={
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={toggleDrawerOpen}
-          >
-            Toggle Drawer
-          </Button>
-        }
-      />
 
       <Route path="*" element={<Navigate to="/pagina-inicial" />} />
     </Routes>

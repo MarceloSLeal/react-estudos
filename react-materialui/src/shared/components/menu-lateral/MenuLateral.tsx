@@ -1,9 +1,7 @@
-import { Contacts } from "@mui/icons-material";
 import {
   Box,
   Divider,
   Drawer,
-  Icon,
   List,
   ListItemButton,
   ListItemIcon,
