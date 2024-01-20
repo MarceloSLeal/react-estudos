@@ -1,17 +1,9 @@
-import {
-  Box,
-  Divider,
-  Drawer,
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { useDrawerContext } from "../../contexts";
+import { Box, Divider, Drawer, IconButton, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme} from "@mui/material";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import React from "react";
+
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 
 interface IListItemLinkProps {
   to: string;
@@ -19,12 +11,7 @@ interface IListItemLinkProps {
   label: string;
   onClick: (() => void) | undefined;
 }
-const ListItemLink: React.FC<IListItemLinkProps> = ({
-  to,
-  icon: IconComponent,
-  label,
-  onClick,
-}) => {
+const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon: IconComponent, label, onClick}) => {
   const navigate = useNavigate();
 
   const resolvedPath = useResolvedPath(to);
@@ -54,33 +41,39 @@ export const MenuLateral: React.FC<IAppMenuLateralProps> = ({ children }) => {
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <>
-      <Drawer
-        open={isDrawerOpen}
-        variant={smDown ? "temporary" : "permanent"}
-        onClose={toggleDrawerOpen}
-      >
-        <Box
-          width={theme.spacing(28)}
-          height="100%"
-          display="flex"
-          flexDirection="column"
-        >
+      <Drawer open={isDrawerOpen} variant={smDown ? "temporary" : "permanent"} onClose={toggleDrawerOpen}>
+        <Box width={theme.spacing(28)} height="100%" display="flex" flexDirection="column">
+
           <Divider />
 
-          <List component="nav">
-            {drawerOptions.map((drawerOption) => (
-              <ListItemLink
-                to={drawerOption.path}
-                key={drawerOption.path}
-                icon={drawerOption.icon}
-                label={drawerOption.label}
-                onClick={smDown ? toggleDrawerOpen : undefined}
-              />
-            ))}
-          </List>
+          <Box flex={1}>
+            <List component="nav">
+              {drawerOptions.map((drawerOption) => (
+                <ListItemLink
+                  to={drawerOption.path}
+                  key={drawerOption.path}
+                  icon={drawerOption.icon}
+                  label={drawerOption.label}
+                  onClick={smDown ? toggleDrawerOpen : undefined}
+                />
+              ))}
+            </List>
+          </Box>
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <DarkModeOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Alternar tema" />
+              </ListItemButton>
+            </List>
+          </Box>
+
         </Box>
       </Drawer>
 

@@ -2,7 +2,6 @@ import React, { ReactNode } from "react";
 import { Box, IconButton, Typography, useTheme, useMediaQuery } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { useDrawerContext } from "../contexts";
-import { MoveDown } from "@mui/icons-material";
 
 interface ILayoutBaseDePagina {
     children: React.ReactNode
