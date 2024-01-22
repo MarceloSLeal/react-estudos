@@ -134,5 +134,6 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProps> = ({
         )}
 
         </Box>
+        
     );
 };
