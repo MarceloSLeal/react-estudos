@@ -3,6 +3,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import React from "react";
 
+import { Environment } from "../../environment";
+
 interface IFerramentasDaListagemProps {
     textoDaBusca?: string;
     mostrarInputBusca?: boolean;
@@ -38,7 +40,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
                 <TextField 
                     size="small"
                     value={textoDaBusca}
-                    placeholder="Pesquisar"
+                    placeholder={Environment.INPUT_DE_BUSCA}
                     onChange= {(e) => aoMudarTextoDeBusca?.(e.target.value)}
                     InputProps={{ startAdornment: ( <InputAdornment position="start"> <SearchIcon /> </InputAdornment>)}}
                 />
