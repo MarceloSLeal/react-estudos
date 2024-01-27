@@ -1,7 +1,7 @@
 import { Environment } from "../../../environment";
 import { Api } from "../axios-config";
 
-interface IBuscarCustomers {
+export interface IBuscarCustomers {
     id: number;
     email: string;
     name: string;
@@ -15,10 +15,10 @@ interface IBuscarCustomers {
     postalCode: string;
     country: string;
     creditLimit: number;
-    employee_id: number;
+    employeeId: number;
 }
 
-interface IDetalheCustomers {
+export interface IDetalheCustomers {
     id: number;
     email: string;
     name: string;
@@ -32,7 +32,7 @@ interface IDetalheCustomers {
     postalCode: string;
     country: string;
     creditLimit: number;
-    employee_id: number;
+    employeeId: number;
 }
 
 type TCustomersComTotalCount = {
