@@ -57,7 +57,7 @@ export const ListagemDeCustomers: React.FC = () => {
 
             
             <TableContainer component={Paper} variant="outlined" sx={{ m: 1 }}>
-                <Table stickyHeader sx={{ overflowX: "initial" }}>
+                <Table style={{ overflowX: 'auto' }}>
                     <TableHead>
                         <TableRow>
                             <TableCell>Id</TableCell>
