@@ -81,4 +81,28 @@ const diaDeFeira = (dia) => {
 };
 console.log(diaDeFeira(segundaFeira));
 console.log(diaDeFeira(tercaFeira));
+const employee = {
+    name: "Marcelo",
+    companyName: "Empresa do Marcelo",
+    address: {
+        city: "Mauá",
+        state: "SP",
+        street: "Rua do Marcelo",
+        country: "Brasil",
+    },
+    display: function () {
+        console.log("Name: " + this.name);
+    },
+};
+console.log(employee.display());
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let updateNumbers = numbers.filter((n) => n > 3);
+let numberIndex = numbers.findIndex((n) => n === 5);
+let numberMap = numbers.map((n) => n * 2);
+console.log(updateNumbers);
+console.log(numberIndex);
+console.log(numberMap);
+for (const num in numbers) {
+    console.log(num);
+}
 //# sourceMappingURL=script.js.map
