@@ -105,4 +105,26 @@ console.log(numberMap);
 for (const num in numbers) {
     console.log(num);
 }
+numbers.forEach((n) => {
+    console.log(n);
+});
+let empregados = [
+    {
+        name: "Marcelo",
+        salary: 1000
+    },
+    {
+        name: "Rose",
+        salary: 2000
+    }
+];
+console.log(empregados);
+let listaDeEmpregados = empregados.map(e => e.name);
+console.log(listaDeEmpregados);
+let listaDeSalarios = empregados.map(e => e.salary);
+console.log(listaDeSalarios);
+let numerosTeste = [10, 30, 13, 50, 1, 80, 70, 11, 42];
+let numerosOrdenados = numerosTeste.sort();
+console.log("Desordenados " + numerosTeste);
+console.log("Ordenados " + numerosOrdenados);
 //# sourceMappingURL=script.js.map

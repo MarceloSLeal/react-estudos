@@ -115,7 +115,7 @@ const employee = {
     street: "Rua do Marcelo",
     country: "Brasil",
   },
-  display: function () {
+  display: function() {
     console.log("Name: " + this.name);
   },
 };
@@ -135,3 +135,34 @@ console.log(numberMap);
 for (const num in numbers) {
   console.log(num);
 }
+
+numbers.forEach((n) => {
+  console.log(n);
+})
+
+
+let empregados = [
+  {
+    name: "Marcelo",
+    salary: 1000
+  },
+  {
+    name: "Rose",
+    salary: 2000
+  }
+]
+
+console.log(empregados)
+
+let listaDeEmpregados: string[] = empregados.map(e => e.name)
+
+console.log(listaDeEmpregados)
+
+let listaDeSalarios: number[] = empregados.map(e => e.salary)
+
+console.log(listaDeSalarios)
+
+let numerosTeste: Array<number> = [10, 30, 13, 50, 1, 80, 70, 11, 42];
+let numerosOrdenados: number[] = numerosTeste.sort();
+console.log("Desordenados " + numerosTeste)
+console.log("Ordenados " + numerosOrdenados)
