@@ -166,3 +166,119 @@ let numerosTeste: Array<number> = [10, 30, 13, 50, 1, 80, 70, 11, 42];
 let numerosOrdenados: number[] = numerosTeste.sort();
 console.log("Desordenados " + numerosTeste)
 console.log("Ordenados " + numerosOrdenados)
+
+let numerosFiltro: Array<number> = numerosTeste.filter(fil => fil.valueOf() > 10);
+console.log(numerosFiltro);
+
+const func = (parametro: string | number) => {
+  console.log(parametro);
+}
+func("Variável String");
+func(1234);
+// func(true);/
+
+enum Letras {
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+  E = "E",
+  F = "F"
+}
+
+let letraA: Letras;
+letraA = Letras.A;
+let letraB: Letras;
+letraB = Letras.B;
+
+const recebeLetras = (letras: Letras, avaliacao: string) => {
+  console.log(letras.toString() + " " + avaliacao);
+}
+
+recebeLetras(letraA, "A melhor nota");
+recebeLetras(letraB, "A segunda melhor nota")
+
+const recebeLetras2 = (letras: Letras): string => {
+  if (letras.valueOf() <= Letras.C) {
+    return "Passou";
+  } else {
+    return "Não Passou";
+  }
+}
+
+enum Letras2 {
+  G,
+  H,
+  I,
+  J,
+  K,
+  L
+}
+
+console.log(recebeLetras2(Letras.D));
+
+console.log(Letras2.G);
+console.log(Letras2.H);
+console.log(Letras2.I);
+console.log(Letras2.J);
+console.log(Letras2.K);
+console.log(Letras2.L);
+
+const tupla = (par: [string, number]) => {
+  console.log(par[0]);
+  console.log(par[1]);
+}
+tupla(["Nome", 30]);
+
+type empId = number;
+let empIdExample1: empId = 10;
+let empIdExample2: empId = 20;
+
+type newEmploee = {
+  name: string,
+  address: {
+    city: string,
+    postalCode: string
+  }
+}
+
+let emp1: newEmploee = {
+  name: "Oi",
+  address: {
+  city: "Mauá",
+  postalCode: "666"
+  }
+}
+
+console.log(emp1);
+
+type Input = string | number | boolean;
+
+const tipo = (valor: Input): string => {
+  if (typeof(valor) === "string") {
+    return "String";
+  } 
+  if (typeof(valor) === "number") {
+    return "Number";
+  }
+  if (typeof(valor) === "boolean") {
+    return "Boolean";
+  }
+  return "Outro"
+}
+
+console.log(tipo("ABC"));
+console.log(tipo(123));
+console.log(tipo(true));
+
+const handleRequest = (url: string, method: "GET" | "POST" | "PUT") => {
+  console.log(method + " calling " + url);
+}
+
+handleRequest("www.google.com", "GET");
+
+const compare = (s1: number, s2: number): number => {
+  return s1 === s2 ? 0 : s1 > s2 ? 1 : -1
+}
+
+console.log(compare(10, 12));

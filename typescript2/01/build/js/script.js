@@ -127,4 +127,92 @@ let numerosTeste = [10, 30, 13, 50, 1, 80, 70, 11, 42];
 let numerosOrdenados = numerosTeste.sort();
 console.log("Desordenados " + numerosTeste);
 console.log("Ordenados " + numerosOrdenados);
+let numerosFiltro = numerosTeste.filter(fil => fil.valueOf() > 10);
+console.log(numerosFiltro);
+const func = (parametro) => {
+    console.log(parametro);
+};
+func("Variável String");
+func(1234);
+// func(true);/
+var Letras;
+(function (Letras) {
+    Letras["A"] = "A";
+    Letras["B"] = "B";
+    Letras["C"] = "C";
+    Letras["D"] = "D";
+    Letras["E"] = "E";
+    Letras["F"] = "F";
+})(Letras || (Letras = {}));
+let letraA;
+letraA = Letras.A;
+let letraB;
+letraB = Letras.B;
+const recebeLetras = (letras, avaliacao) => {
+    console.log(letras.toString() + " " + avaliacao);
+};
+recebeLetras(letraA, "A melhor nota");
+recebeLetras(letraB, "A segunda melhor nota");
+const recebeLetras2 = (letras) => {
+    if (letras.valueOf() <= Letras.C) {
+        return "Passou";
+    }
+    else {
+        return "Não Passou";
+    }
+};
+var Letras2;
+(function (Letras2) {
+    Letras2[Letras2["G"] = 0] = "G";
+    Letras2[Letras2["H"] = 1] = "H";
+    Letras2[Letras2["I"] = 2] = "I";
+    Letras2[Letras2["J"] = 3] = "J";
+    Letras2[Letras2["K"] = 4] = "K";
+    Letras2[Letras2["L"] = 5] = "L";
+})(Letras2 || (Letras2 = {}));
+console.log(recebeLetras2(Letras.D));
+console.log(Letras2.G);
+console.log(Letras2.H);
+console.log(Letras2.I);
+console.log(Letras2.J);
+console.log(Letras2.K);
+console.log(Letras2.L);
+const tupla = (par) => {
+    console.log(par[0]);
+    console.log(par[1]);
+};
+tupla(["Nome", 30]);
+let empIdExample1 = 10;
+let empIdExample2 = 20;
+let emp1 = {
+    name: "Oi",
+    address: {
+        city: "Mauá",
+        postalCode: "666"
+    }
+};
+console.log(emp1);
+const tipo = (valor) => {
+    if (typeof (valor) === "string") {
+        return "String";
+    }
+    if (typeof (valor) === "number") {
+        return "Number";
+    }
+    if (typeof (valor) === "boolean") {
+        return "Boolean";
+    }
+    return "Outro";
+};
+console.log(tipo("ABC"));
+console.log(tipo(123));
+console.log(tipo(true));
+const handleRequest = (url, method) => {
+    console.log(method + " calling " + url);
+};
+handleRequest("www.google.com", "GET");
+const compare = (s1, s2) => {
+    return s1 === s2 ? 0 : s1 > s2 ? 1 : -1;
+};
+console.log(compare(10, 12));
 //# sourceMappingURL=script.js.map
