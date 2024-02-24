@@ -282,3 +282,34 @@ const compare = (s1: number, s2: number): number => {
 }
 
 console.log(compare(10, 12));
+
+///////////////
+
+const funcao1 = (n1: number, n2: number, n3?: number): number => {
+  return n1 + n2 + (n3 || 0)
+}
+console.log(funcao1(10, 20 ));
+
+const displayLogs = (...logs: any[]) => {
+  logs.forEach(log => {
+    if (typeof log === "string") {
+      console.log(log);
+    } else {
+      console.error(`Parametro ${log} não é uma string`);
+    }
+  })
+}
+displayLogs("Log1", "Log2", "Log3", 123, "Log4", true, "Log5", 456);
+
+const contaString = (st: string | number) => {
+  if ( typeof st === "string") {
+    console.log(( st as string).length);
+  } else {
+    console.log("length only for string paramethers");
+  }
+}
+contaString("1234")
+contaString(1234);
+
+const input1 = document.getElementById("input1") as HTMLInputElement;
+console.log(input1?.value);

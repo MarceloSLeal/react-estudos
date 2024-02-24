@@ -215,4 +215,32 @@ const compare = (s1, s2) => {
     return s1 === s2 ? 0 : s1 > s2 ? 1 : -1;
 };
 console.log(compare(10, 12));
+///////////////
+const funcao1 = (n1, n2, n3) => {
+    return n1 + n2 + (n3 || 0);
+};
+console.log(funcao1(10, 20));
+const displayLogs = (...logs) => {
+    logs.forEach(log => {
+        if (typeof log === "string") {
+            console.log(log);
+        }
+        else {
+            console.error(`Parametro ${log} não é uma string`);
+        }
+    });
+};
+displayLogs("Log1", "Log2", "Log3", 123, "Log4", true, "Log5", 456);
+const contaString = (st) => {
+    if (typeof st === "string") {
+        console.log(st.length);
+    }
+    else {
+        console.log("length only for string paramethers");
+    }
+};
+contaString("1234");
+contaString(1234);
+const input1 = document.getElementById("input1");
+console.log(input1 === null || input1 === void 0 ? void 0 : input1.value);
 //# sourceMappingURL=script.js.map
