@@ -1,10 +1,40 @@
-let username = 'Dave';
-console.log(username);
+let myName: string = 'Dave';
+let meaningOfLife: number;
+let isLoading: boolean;
+let album: any;
 
-let a: number = 12;
-let b: number = 6;
-let c: number = 2;
+myName = 'John'
+meaningOfLife = 42;
+isLoading = true;
+album = true;
 
-console.log(a / b);
+const sum = (a: number, b: number) => {
+  return a + b;
+}
+console.log(sum(10, 10));
 
-console.log(c * b);
+let postId: string | number;
+let isActive: number | boolean;
+
+const func1 = (post: string | number, active: number | boolean): string => {
+  let params: string = "";
+
+  if (typeof post === "string") {
+    params += "post = string ";
+  } else {
+    params += "post = number ";
+  }
+
+  if (typeof active === "number") {
+    params += "active = number ";
+  } else {
+    params += "active = boolean ";
+  }
+
+  return params;
+}
+
+console.log(func1("Post01", 1));
+console.log(func1(1, 1));
+console.log(func1("Post02", true));
+console.log(func1(2, false));
