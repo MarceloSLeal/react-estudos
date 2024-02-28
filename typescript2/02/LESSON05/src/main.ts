@@ -52,3 +52,11 @@ let varE: boolean | number = sumOrBoolComp(10, 30);
 console.log(varE);
 let varF: boolean | number = sumOrBoolComp(2, 2);
 console.log(varF);
+
+//
+const img = document.querySelector("img")!;
+const myImg = document.getElementById("#img") as HTMLImageElement;
+const nextImag = <HTMLImageElement>document.getElementById("#img");
+
+img.src;
+myImg.src;
