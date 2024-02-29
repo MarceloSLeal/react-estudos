@@ -201,3 +201,28 @@ const count2: CountStatic = new CountStatic("Rose");
 const count3: CountStatic = new CountStatic("Leo o gato");
 
 console.log(CountStatic.getCount());
+
+///////
+
+class Factory {
+    private process: string[];
+
+    constructor () {
+        this.process = []
+    }
+
+    public get _process (): string[] {
+        return this.process;
+    }
+    public set _process(insert: string) {
+        this.process.push(insert);
+    }
+}
+
+let fac1 = new Factory();
+fac1._process = "A";
+fac1._process = "B";
+fac1._process = "C";
+
+fac1._process.forEach(arr => console.log(arr));
+console.log(fac1._process);
