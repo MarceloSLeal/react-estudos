@@ -90,10 +90,10 @@ class Car {
     }
 }
 
-class Dealership  extends Car {
-    constructor (
+class Dealership extends Car {
+    constructor(
         public store: string,
-        owner: string, 
+        owner: string,
         model: string,
         year: number,
         brand: string,
@@ -101,7 +101,103 @@ class Dealership  extends Car {
         super(owner, model, year, brand);
         this.store = store;
     }
-} 
+}
 const store1 = new Dealership("Store1", "Marcelo", "Cruise", 2022, "GM");
 console.log(store1.getOwner());
 console.log(store1);
+
+////////
+
+class SubwayLines {
+    constructor(
+        public colorLine: string,
+        public numerOfCars: number,
+        public passPerDay: number,
+        private operational: string,
+    ) {
+        this.colorLine = colorLine;
+        this.numerOfCars = numerOfCars;
+        this.passPerDay = passPerDay;
+        this.operational = operational;
+    }
+    public getOperational() {
+        return this.operational;
+    }
+}
+
+let line1 = new SubwayLines("red", 20, 100000, "For operational use only");
+let line2 = new SubwayLines("blue", 15, 200000, "Blue operations");
+let line3 = new SubwayLines("green", 18, 120000, "green day operations");
+
+const linesVar: SubwayLines[] = [line1, line2, line3];
+
+linesVar.forEach(lines => {
+    console.log(lines.colorLine);
+    console.log(lines.getOperational());
+});
+
+/////////////////
+
+enum Payment {
+    cash = "cash",
+    credictCard = "credictCard"
+}
+
+interface Accomodation {
+    checkIn: Date,
+    checkOut: Date,
+    value: number,
+    paymentMethod(payment: Payment): string
+}
+
+class Hostel implements Accomodation {
+    checkIn: Date;
+    checkOut: Date;
+    value: number;
+    public paymentM: Payment;
+    constructor(
+        checkIn: Date,
+        checkOut: Date,
+        value: number,
+        paymentM: Payment,
+    ) {
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+        this.value = value;
+        this.paymentM = paymentM;
+    }
+    public paymentMethod(payment: Payment) {
+        return payment;
+    }
+
+}
+
+let dateIn: Date = new Date(2024, 3, 10, 12, 0, 0, 0);
+let dateOut: Date = new Date(2024, 3, 12, 12, 0, 0, 0);
+const hostel1 = new Hostel(dateIn, dateOut, 500, Payment.credictCard);
+console.log(hostel1);
+console.log(hostel1.checkIn.toLocaleString());
+console.log(hostel1.checkOut.toLocaleString());
+
+//////
+
+class CountStatic {
+    static count: number = 0;
+
+    static getCount(): number {
+        return CountStatic.count;
+    }
+
+    public id: number;
+
+    constructor(public name: string) {
+        this.name = name;
+        this.id = ++CountStatic.count
+    }
+}
+
+const count1: CountStatic = new CountStatic("Marcelo");
+const count2: CountStatic = new CountStatic("Rose");
+const count3: CountStatic = new CountStatic("Leo o gato");
+
+console.log(CountStatic.getCount());
