@@ -21,3 +21,8 @@ const funcNotRequired = (assign) => {
 };
 console.log(funcRequired({ prop1: "A", prop2: "B", prop3: 1, prop4: true }));
 console.log(funcNotRequired({ prop1: "B", prop2: "C", prop3: 10 }));
+const carList = {
+    BMW: { name: "IDN", model: "IDN", brand: "BMW", km: 1000 },
+    PORCHE: { name: "Kayene", model: "IDN", brand: "Porche", km: 500 },
+    FERRARI: { name: "F1", model: "IDN", brand: "Ferrari", km: 2000 },
+};

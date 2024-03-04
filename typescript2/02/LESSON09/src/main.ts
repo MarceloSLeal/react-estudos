@@ -56,3 +56,21 @@ const funcNotRequired = (assign: ListVerified): ListVerified => {
 
 console.log(funcRequired({prop1: "A", prop2: "B", prop3: 1, prop4: true}));
 console.log(funcNotRequired({prop1: "B", prop2: "C", prop3: 10}));
+
+///////////////
+// Record
+
+interface Cars {
+    name: string,
+    model: string,
+    brand: string, 
+    km: number,
+}
+
+type brands = "BMW" | "PORCHE" | "FERRARI";
+
+const carList: Record<brands, Cars> = {
+    BMW: {name: "IDN", model: "IDN", brand: "BMW", km: 1000},
+    PORCHE: {name: "Kayene", model: "IDN", brand: "Porche", km: 500},
+    FERRARI: {name: "F1", model: "IDN", brand: "Ferrari", km: 2000},
+}
