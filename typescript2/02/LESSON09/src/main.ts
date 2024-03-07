@@ -74,3 +74,110 @@ const carList: Record<brands, Cars> = {
     PORCHE: {name: "Kayene", model: "IDN", brand: "Porche", km: 500},
     FERRARI: {name: "F1", model: "IDN", brand: "Ferrari", km: 2000},
 }
+
+type Students = "Marcelo" | "Rose" | "Leo o gato"
+type LetterGrades = "A" | "B" | "C" | "D" | "F"
+
+const finalGrades: Record< Students, LetterGrades > = {
+    Marcelo: "A",
+    Rose: "B",
+    "Leo o gato": "D",
+}
+
+// Pick and Omit
+
+interface TodoList {
+    tittle: string,
+    task: string,
+    status: boolean,
+}
+
+type TodoImpl = Pick<TodoList, "tittle" | "task">;
+
+const t1: TodoImpl = {
+    tittle: "Study Harder", 
+    task: "TypeScript",
+}
+
+type TodoImpl2 = Omit<TodoList, "task">;
+
+const t2: TodoImpl2 = {
+    tittle: "Try not to sleep",
+    status: true,
+}
+
+////////////
+// Exclude and Extract
+
+type Notas = "A"| "B" | "C"| "D";
+
+type ajustarNotas = Exclude<Notas, "D">;
+
+type ajustarNotas2 = Extract<Notas, "B" | "C">;
+
+const funcNotas1 = (notas: Notas) => {
+    console.log(notas);
+}
+
+funcNotas1("A");
+
+const funcNotas2 = (notas: ajustarNotas) => {
+    console.log(notas);
+}
+
+funcNotas2("C");
+
+const funcNotas3 = (notas: ajustarNotas2) => {
+    console.log(notas);
+}
+
+funcNotas3("C");
+
+type ajustarNotasExtract1 = Extract<Notas, "A" | "D">;
+
+const funcNotas4 = (notas: ajustarNotasExtract1) => {
+    console.log(notas);
+}
+
+funcNotas4("D");
+
+///////////////
+
+// Nonnullable
+
+type TNonNullable1 = NonNullable<string | number | null>;
+
+type TNonNullable2 = NonNullable<"Marcelo" | "Rose" | "Leo o Gato" | undefined | null>;
+
+const funcNonNullable1 = (t: TNonNullable1) => {
+    console.log(t);
+}
+
+funcNonNullable1("Zumbi");
+
+const funcNonNullable2 = (t: TNonNullable2) => {
+    console.log(t);
+}
+
+funcNonNullable2("Leo o Gato");
+
+//////////////
+
+// ReturnType
+
+const f1 = (a: number, b: number) => {
+   return a % b;
+}
+
+type typeReturnType = ReturnType<typeof f1>;
+
+const returnType: typeReturnType = f1(10, 20);
+
+console.log(returnType);
+
+//////////////
+
+// Parameters
+
+
+

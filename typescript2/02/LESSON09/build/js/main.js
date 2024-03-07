@@ -26,3 +26,49 @@ const carList = {
     PORCHE: { name: "Kayene", model: "IDN", brand: "Porche", km: 500 },
     FERRARI: { name: "F1", model: "IDN", brand: "Ferrari", km: 2000 },
 };
+const finalGrades = {
+    Marcelo: "A",
+    Rose: "B",
+    "Leo o gato": "D",
+};
+const t1 = {
+    tittle: "Study Harder",
+    task: "TypeScript",
+};
+const t2 = {
+    tittle: "Try not to sleep",
+    status: true,
+};
+const funcNotas1 = (notas) => {
+    console.log(notas);
+};
+funcNotas1("A");
+const funcNotas2 = (notas) => {
+    console.log(notas);
+};
+funcNotas2("C");
+const funcNotas3 = (notas) => {
+    console.log(notas);
+};
+funcNotas3("C");
+const funcNotas4 = (notas) => {
+    console.log(notas);
+};
+funcNotas4("D");
+const funcNonNullable1 = (t) => {
+    console.log(t);
+};
+funcNonNullable1("Zumbi");
+const funcNonNullable2 = (t) => {
+    console.log(t);
+};
+funcNonNullable2("Leo o Gato");
+//////////////
+// ReturnType
+const f1 = (a, b) => {
+    return a % b;
+};
+const returnType = f1(10, 20);
+console.log(returnType);
+//////////////
+// Parameters
