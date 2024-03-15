@@ -2,29 +2,26 @@ import ListItem from "./model/ListItem";
 
 const initApp = (): void => {
 
-    let listItem: ListItem[] = [];
-
-    const url: string = "https://dummyjson.com/products";
-    async function fetchJson(urlPath: string): Promise<ListItem[]> {
-        const response = await fetch(urlPath);
-        if (!response.ok) {
-            throw new Error("Forsooth, a scourge upon our fetch quest: " +
-                response.statusText);
-        }
-        const jsonData: { products: ListItem[] } = await response.json();
-        return jsonData.products;
+    interface Prod {
+        id: number,
+        title: string,
     }
 
-    fetchJson(url)
-        .then(data => {
-            
-            listItem = data;
-            
-            // console.log(listItem);
-        })
-        .catch(error => {
-            console.log("Error occour when searching the data " + error);
-        });
+    const url = "https://dummyjson.com/products";
+    const fetchProducts = async (): Promise<Prod[]> => {
+        
+        const data = await fetch(url)
+        .then(res => {
+                return res.json()
+            }).catch(err => {
+                if (err instanceof Error) console.log(err.message);
+            })
+        return data;
+    }
+
+    type FetchProductsReturnType = Awaited<ReturnType<typeof fetchProducts>>;
+
+    fetchProducts().then(prod => console.log(prod));
 
 
 }
