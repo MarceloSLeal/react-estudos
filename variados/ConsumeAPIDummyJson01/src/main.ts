@@ -1,18 +1,18 @@
 // import ListItem from "./model/ListItem";
-import axios from "axios";
+// import axios from "axios";
 
 const initApp = (): void => {
 
-    interface Products {
-        id: number,
-        title: string,
-        description: string,
-        price: number,
-    }
+    // interface Products {
+    //     id: number,
+    //     title: string,
+    //     description: string,
+    //     price: number,
+    // }
 
-    let productsInstance: Products[] = [];
+    // let productsInstance: Products[] = [];
 
-    const url = "https://dummyjson.com/products";
+    // const url = "https://dummyjson.com/products";
 
     // async function getProductsFromAPI(): Promise<Products[]> {
     //     try {
@@ -44,33 +44,22 @@ const initApp = (): void => {
         completed: boolean,
     }
 
-    let todoInstance: Todo[] = [];
+    const urlTodo = "https://jsonplaceholder.typicode.com/todos";
 
-    async function fetchToDo<T>(resourceUrl: string): Promise<T[]> {
-        return fetch(resourceUrl).then(response => {
-            return response.json();
-        })
+    async function http<T>(request: RequestInfo): Promise<T> {
+        const response = await fetch(request);
+        const body = await response.json();
+        return body;
     }
 
-    fetchToDo<Todo>("https://jsonplaceholder.typicode.com/todos")
-        .then((toDoItem) => {
-            // let myNewToDo: Todo[] = toDoItem
-            // console.log(toDoItem);
-            console.log(toDoItem.length);
-            console.log(toDoItem[2]);
-            
-            for(let i = 0; i > toDoItem.length; i++) {
-                todoInstance[i].userId = toDoItem[i].userId;
-            }
-        });
+    const data =  http<Todo[]>(urlTodo);
 
-    todoInstance.forEach((e) => {
-        console.log(e);
+    data.then((result) => {
+            // console.log(result[0].id);
+        result.forEach((e) => {
+            console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
+        })
     })
-
-    console.log(todoInstance.length);
-
-
 
 }
 
