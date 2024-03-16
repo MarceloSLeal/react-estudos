@@ -57,7 +57,33 @@ const initApp = (): void => {
     data.then((result) => {
             // console.log(result[0].id);
         result.forEach((e) => {
-            console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
+            // console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
+        })
+    })
+
+    /////////////////////
+
+
+    interface Products {
+        id: number,
+        title: string,
+        description: string,
+        price: number,
+    }
+
+    const url = "https://dummyjson.com/products";
+
+    async function products<T>(request: RequestInfo): Promise<T> {
+        const response = await fetch(request);
+        const body = await response.json();
+        return body;
+    }
+
+    const prod = products<Products[]>(url);
+
+    prod.then((result) => {
+        result.forEach((e) => {
+            console.log(e.title);
         })
     })
 
