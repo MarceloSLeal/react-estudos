@@ -3,65 +3,35 @@
 
 const initApp = (): void => {
 
-    // interface Products {
+
+    /////////////////// Funciona
+
+
+    // interface Todo {
+    //     userId: number,
     //     id: number,
     //     title: string,
-    //     description: string,
-    //     price: number,
+    //     completed: boolean,
     // }
 
-    // let productsInstance: Products[] = [];
+    // const urlTodo = "https://jsonplaceholder.typicode.com/todos";
 
-    // const url = "https://dummyjson.com/products";
-
-    // async function getProductsFromAPI(): Promise<Products[]> {
-    //     try {
-    //         const response = await axios.get(url);
-    //         const productsAPI: Products[] = response.data;
-    //         return productsAPI;
-    //     } catch (error) {
-    //         console.error("Error to get API " + error);
-    //         return [];
-    //     }
+    // async function http<T>(request: RequestInfo): Promise<T> {
+    //     const response = await fetch(request);
+    //     const body = await response.json();
+    //     return body;
     // }
 
-    // async function main(): Promise<Products[]> {
-    //     productsInstance = await getProductsFromAPI();
-    //     console.log(productsInstance.length);
-    //     return productsInstance;
-    // }
+    // const data =  http<Todo[]>(urlTodo);
 
-    // console.log(main());
+    // data.then((result) => {
+    //         // console.log(result[0].id);
+    //     result.forEach((e) => {
+    //         // console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
+    //     })
+    // })
 
-
-    ///////////////////
-
-
-    interface Todo {
-        userId: number,
-        id: number,
-        title: string,
-        completed: boolean,
-    }
-
-    const urlTodo = "https://jsonplaceholder.typicode.com/todos";
-
-    async function http<T>(request: RequestInfo): Promise<T> {
-        const response = await fetch(request);
-        const body = await response.json();
-        return body;
-    }
-
-    const data =  http<Todo[]>(urlTodo);
-
-    data.then((result) => {
-            // console.log(result[0].id);
-        result.forEach((e) => {
-            // console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
-        })
-    })
-
-    /////////////////////
+    ///////////////////// Funciona
 
 
     interface Products {
@@ -73,26 +43,31 @@ const initApp = (): void => {
 
     const url = "https://dummyjson.com/products";
 
-    async function products<T>(request: RequestInfo): Promise<T> {
+    async function products(request: RequestInfo): Promise<Products[]> {
         const response = await fetch(request);
-        const body = await response.json();
-        return body;
+        const responseBody = await response.json();
+
+        if(!Array.isArray(responseBody.products)) {
+            throw new Error ("A resposta da requisição não é um array.");
+        }
+
+        return responseBody.products;
     }
 
-    const prod = products<Products[]>(url);
+    const prod = products(url);
 
     prod.then((result) => {
         result.forEach((e) => {
             console.log(e.title);
-        })
+        });
+    }).catch((error) => {
+        console.log("Ocorreu um erro ao buscar Produtos", error);
+    });
+
+    prod.then((e) => {
+        console.log(e.length);
     })
 
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
-
-
-
-// fetch('https://dummyjson.com/products')
-// .then(res => res.json())
-// .then(console.log);
