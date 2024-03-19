@@ -1,5 +1,4 @@
-// import ListItem from "./model/ListItem";
-// import axios from "axios";
+import ListItem from "./model/ListItem";
 
 const initApp = (): void => {
 
@@ -33,17 +32,16 @@ const initApp = (): void => {
 
     ///////////////////// Funciona
 
-
-    interface Products {
-        id: number,
-        title: string,
-        description: string,
-        price: number,
-    }
+    // interface Products {
+    //     id: number,
+    //     title: string,
+    //     description: string,
+    //     price: number,
+    // }
 
     const url = "https://dummyjson.com/products";
 
-    async function products(request: RequestInfo): Promise<Products[]> {
+    async function products(request: RequestInfo): Promise<ListItem[]> {
         const response = await fetch(request);
         const responseBody = await response.json();
 
