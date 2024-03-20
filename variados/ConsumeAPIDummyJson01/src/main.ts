@@ -1,71 +1,89 @@
-import ListItem from "./model/ListItem";
+// import "./css/style.css";
+// import FullList from "./model/FullList";
+// import ListItem from "./model/ListItem";
+// import ListTemplate from "./templates/ListTemplate";
 
-const initApp = (): void => {
+// const initApp = (): void => {
 
+//     const fullList = FullList.instance;
+//     const template = ListTemplate.instance;
 
-    /////////////////// Funciona
+//     const div = document.getElementById("addUl") as HTMLDivElement;
 
+//     fullList.load();
+//     template.render(fullList);
 
-    // interface Todo {
-    //     userId: number,
-    //     id: number,
-    //     title: string,
-    //     completed: boolean,
-    // }
+//     
 
-    // const urlTodo = "https://jsonplaceholder.typicode.com/todos";
+//     // const url = "https://dummyjson.com/products";
 
-    // async function http<T>(request: RequestInfo): Promise<T> {
-    //     const response = await fetch(request);
-    //     const body = await response.json();
-    //     return body;
-    // }
+//     // async function products(request: RequestInfo): Promise<ListItem[]> {
+//     //     const response = await fetch(request);
+//     //     const responseBody = await response.json();
 
-    // const data =  http<Todo[]>(urlTodo);
+//     //     if(!Array.isArray(responseBody.products)) {
+//     //         throw new Error ("A resposta da requisição não é um array.");
+//     //     }
 
-    // data.then((result) => {
-    //         // console.log(result[0].id);
-    //     result.forEach((e) => {
-    //         // console.log("UserId " + e.userId + " id " + e.id + " title " + e.title + " completed " + e.completed);
-    //     })
-    // })
+//     //     return responseBody.products;
+//     // }
 
-    ///////////////////// Funciona
+//     // const prod = products(url);
 
-    // interface Products {
-    //     id: number,
-    //     title: string,
-    //     description: string,
-    //     price: number,
-    // }
+//     // prod.then((result) => {
+//     //     result.forEach((e) => {
+//     //         console.log(e.title);
+//     //     });
+//     // }).catch((error) => {
+//     //     console.log("Ocorreu um erro ao buscar Produtos", error);
+//     // });
 
-    const url = "https://dummyjson.com/products";
+//     // prod.then((e) => {
+//     //     console.log(e.length);
+//     // })
 
-    async function products(request: RequestInfo): Promise<ListItem[]> {
-        const response = await fetch(request);
-        const responseBody = await response.json();
+// }
 
-        if(!Array.isArray(responseBody.products)) {
-            throw new Error ("A resposta da requisição não é um array.");
-        }
+// document.addEventListener("DOMContentLoaded", initApp);
 
-        return responseBody.products;
+import "./css/style.css";
+import FullList from "./model/FullList";
+import ListTemplate from "./templates/ListTemplate";
+
+const initApp = async (): Promise<void> => {
+    console.log("Inicializando aplicação...");
+
+    const fullList = FullList.instance;
+    const template = ListTemplate.instance;
+
+    // Carrega a lista
+    await fullList.load();
+    console.log("Lista carregada:", fullList);
+
+    // Obtém a referência para o elemento ul
+    const ul = document.getElementById("listItems");
+    console.log("Elemento ul:", ul);
+
+    // Verifica se o elemento ul existe
+    if (ul) {
+        // Limpa o conteúdo existente
+        ul.innerHTML = '';
+        console.log("Conteúdo do ul limpo.");
+
+        // Renderiza a lista no HTML usando o ListTemplate
+        template.render(fullList);
+
+        console.log("Lista renderizada com template:", fullList);
+    } else {
+        console.error("Elemento ul não encontrado.");
     }
-
-    const prod = products(url);
-
-    prod.then((result) => {
-        result.forEach((e) => {
-            console.log(e.title);
-        });
-    }).catch((error) => {
-        console.log("Ocorreu um erro ao buscar Produtos", error);
-    });
-
-    prod.then((e) => {
-        console.log(e.length);
-    })
-
-}
+};
 
 document.addEventListener("DOMContentLoaded", initApp);
+
+
+
+
+
+
+

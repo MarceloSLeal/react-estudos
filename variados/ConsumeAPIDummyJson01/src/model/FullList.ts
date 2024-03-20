@@ -6,7 +6,7 @@ interface List {
     save(): void,
     addItem(itemObj: ListItem): void,
     removeItem(id: number): void,
-    // loadApi(request: RequestInfo): Promise<ListItem[]>,
+    loadApi(request: RequestInfo): Promise<ListItem[]>,
 }
 
 const url = "https://dummyjson.com/products";
@@ -23,7 +23,7 @@ export default class FullList implements List {
         return this._list;
     }
 
-    private async loadApi(request: RequestInfo): Promise<ListItem[]> {
+    async loadApi(request: RequestInfo): Promise<ListItem[]> {
         const response = await fetch(request);
         const responseBody = await response.json();
 
