@@ -35,7 +35,8 @@ export default class ListTemplate implements DOMList {
 
             // TODO adicionar os outros campos
 
-            this.ul.append(li);
+            // this.ul.append(li);
+            this.ul.appendChild(li);
         })
     }
 }
