@@ -35,20 +35,6 @@ export default class FullList implements List {
     }
 
     load(): void {
-        //     const storedList: string | null = localStorage.getItem("myList");
-        //     if (typeof storedList !== "string") return;
-
-        //     const parsedList: {
-        //         _id: number, _title: string, _price: number,
-        //         _brand: string, _category: string, _thumbnail: string
-        //     }[]
-        //         = JSON.parse(storedList);
-
-        //     parsedList.forEach(obj => {
-        //         const newListItem = new ListItem(obj._id, obj._title,
-        //             obj._price, obj._brand, obj._category, obj._thumbnail);
-        //         FullList.instance.addItem(newListItem);
-        //     })
 
         const prod = this.loadApi(url);
 
@@ -59,6 +45,55 @@ export default class FullList implements List {
                 FullList.instance.addItem(newListItem);
             })
         })
+
+        this.render();
+    }
+
+    render(): void {
+        let ul = document.getElementById("listItems") as HTMLUListElement;
+
+        const storedList: string | null = localStorage.getItem("myList");
+        // console.log(storedList);
+        if (typeof storedList !== "string") return;
+
+        const parsedList: {
+            _id: number, _title: string, _price: number, _brand: string,
+            _category: string, _thumbnail: string
+        }[] = JSON.parse(storedList);
+
+        try {
+
+            parsedList.forEach(item => {
+                const li = document.createElement("li") as HTMLLIElement;
+                li.className = "item";
+
+                const label1 = document.createElement("label") as HTMLLabelElement;
+                label1.htmlFor = item._id.toString();
+                label1.textContent = item._id.toString();
+                li.append(label1);
+
+                const label2 = document.createElement("label") as HTMLLabelElement;
+                label2.htmlFor = item._id.toString();
+                label2.textContent = item._title;
+                li.append(label2);
+
+                const label3 = document.createElement("label") as HTMLLabelElement;
+                label3.htmlFor = item._id.toString();
+                label3.textContent = item._price.toString();
+                li.append(label3);
+
+                const label4 = document.createElement("label") as HTMLLabelElement;
+                label4.htmlFor = item._id.toString();
+                label4.textContent = item._brand;
+                li.append(label4);
+
+
+                ul.append(li);
+            })
+        } catch (e) {
+            console.log(e);
+        }
+
     }
 
     save(): void {
