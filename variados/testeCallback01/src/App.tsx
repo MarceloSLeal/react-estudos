@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useCallback } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState<number>(0);
+    const [text, setText] = useState<string>("");
+    const [check, setCheck] = useState<boolean>(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const increment = useCallback(() => {
+        setCount(count + 1);
+    }, [count]);
+    const addText = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        setText(e.target.value);
+    }, [text]);
+    const addCheck = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const isChecked = e.target.checked;
+        setCheck(isChecked);
+    }, []);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <ChildComponent increment={increment} />
+            <p>Text: {text}</p>
+            <AddInput addText={addText} />
+            <p>CheckBox: {check.toString()}</p>
+            <AddCheck addCheck={addCheck}/>
+        </div>
+    );
+}
+
+function ChildComponent({ increment }: { increment: () => void }) {
+    return <button onClick={increment}>Increment</button>;
+}
+function AddInput({ addText }: { addText: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
+    return <input type="text" placeholder="Type Here" onChange={addText}></input>;
+}
+function AddCheck({ addCheck }: { addCheck: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
+    return <input type="checkbox" onChange={addCheck}></input>;
 }
 
 export default App
