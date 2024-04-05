@@ -22,14 +22,14 @@ const StateTutorial = () => {
 
     return (
         <>
-            <div className="root">
+            <div className="div1">
                 <h2>---useState---</h2>
                 <h1> {counter} </h1>
                 <button onClick={increment}>+</button>
                 <button onClick={decrement}>-</button>
                 <button onClick={zero}>0</button>
             </div>
-            <div className="root">
+            <div className="div1">
                 <input placeholder="Enter something" onChange={updateInput}/>
                 <p>{inputValue}</p>
             </div>

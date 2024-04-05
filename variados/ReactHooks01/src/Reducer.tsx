@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import './App.css'
 
 const initState = { count: 0, text: false };
 
@@ -33,7 +34,7 @@ const ReducerTutorial = () => {
     const [state, dispatch] = useReducer(reducer, initState);
 
     return (
-        <div>
+        <div className="div2">
             <h2>---useReducer---</h2>
             <h1>{state.count}</h1>
             <button onClick={() => {
