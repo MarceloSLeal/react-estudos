@@ -5,11 +5,13 @@ import './index.css'
 import State from './State.tsx'
 import Reducer from './Reducer.tsx'
 import Effect from './Effect.tsx'
+import Ref from './Ref.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <State />
     <Reducer />
     <Effect />
+    <Ref />
   </React.StrictMode>,
 )
