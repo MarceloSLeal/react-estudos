@@ -20,7 +20,7 @@ const EffectTutorial = () => {
             axios.get("https://jsonplaceholder.typicode.com/comments")
                 .then((response) => {
                     setData(response.data);
-                    console.log(data);
+                    console.log(response.data);
                 });
         }
     }, []);
