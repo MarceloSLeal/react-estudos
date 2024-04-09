@@ -6,6 +6,7 @@ import State from './State.tsx'
 import Reducer from './Reducer.tsx'
 import Effect from './Effect.tsx'
 import Ref from './Ref.tsx'
+import LayoutEffect from './LayoutEffect.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -13,5 +14,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Reducer />
     <Effect />
     <Ref />
+    <LayoutEffect />
   </React.StrictMode>,
 )
