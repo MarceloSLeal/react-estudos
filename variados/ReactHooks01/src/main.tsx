@@ -7,6 +7,7 @@ import Reducer from './Reducer.tsx'
 import Effect from './Effect.tsx'
 import Ref from './Ref.tsx'
 import LayoutEffect from './LayoutEffect.tsx'
+import ImperativeHandle from './ImperativeHandle.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -15,5 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Effect />
     <Ref />
     <LayoutEffect />
+    <ImperativeHandle />
   </React.StrictMode>,
 )
