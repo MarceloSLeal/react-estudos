@@ -1,5 +1,4 @@
 import { useReducer } from "react";
-import './App.css'
 
 const initState = { count: 0, text: false };
 

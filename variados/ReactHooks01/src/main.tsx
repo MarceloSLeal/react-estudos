@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.tsx'
 import './index.css'
-import State from './State.tsx'
-import Reducer from './Reducer.tsx'
-import Effect from './Effect.tsx'
-import Ref from './Ref.tsx'
-import LayoutEffect from './LayoutEffect.tsx'
-import ImperativeHandle from './ImperativeHandle.tsx'
+import './App.css'
+import State from './hooks/State.tsx'
+import Reducer from './hooks/Reducer.tsx'
+import Effect from './hooks/Effect.tsx'
+import Ref from './hooks/Ref.tsx'
+import LayoutEffect from './hooks/LayoutEffect.tsx'
+import ImperativeHandle from './hooks/ImperativeHandle.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

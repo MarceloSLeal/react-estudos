@@ -1,6 +1,10 @@
-import React, { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 
-const Button = forwardRef((props, ref) => {
+export interface ButtonRef {
+    alterToggle: () => void;
+}
+
+const Button = forwardRef<ButtonRef>((_, ref) => {
     const [toggle, setToggle] = useState(false);
 
     useImperativeHandle(ref, () => ({
