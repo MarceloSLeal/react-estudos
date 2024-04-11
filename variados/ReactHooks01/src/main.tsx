@@ -8,6 +8,7 @@ import Effect from './hooks/Effect.tsx'
 import Ref from './hooks/Ref.tsx'
 import LayoutEffect from './hooks/LayoutEffect.tsx'
 import ImperativeHandle from './hooks/ImperativeHandle.tsx'
+import Context from './hooks/Context.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -17,5 +18,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <Ref />
     <LayoutEffect />
     <ImperativeHandle />
+    <Context />
   </React.StrictMode>,
 )
