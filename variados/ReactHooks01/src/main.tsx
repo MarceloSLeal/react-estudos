@@ -10,6 +10,7 @@ import LayoutEffect from './hooks/LayoutEffect.tsx'
 import ImperativeHandle from './hooks/ImperativeHandle.tsx'
 import Context from './hooks/Context.tsx'
 import Memo from './hooks/Memo.tsx'
+import CallBackTutorial from './hooks/Callback.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,5 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <ImperativeHandle />
     <Context />
     <Memo />
+    <CallBackTutorial />
   </React.StrictMode>,
 )
