@@ -16,7 +16,7 @@ const Counter = ({ children }: ChildrenType) => {
                 <button onClick={increment}>+</button>
                 <button onClick={decrement}>-</button>
             </div>
-            <input type="text" onChange={handleTextInput}/>
+            <input type="text" onChange={handleTextInput} />
             <h2>{text}</h2>
         </>
     )
