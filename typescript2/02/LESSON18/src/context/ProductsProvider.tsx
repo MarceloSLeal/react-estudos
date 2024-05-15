@@ -6,7 +6,7 @@ export type ProductType = {
 	price: number,
 }
 
-// const initState: ProductType[] = []
+//const initState: ProductType[] = []
 const initState: ProductType[] = [
 	{
 		"sku": "item0001",
@@ -45,7 +45,7 @@ export const ProductsProvider = ({ children }: ChildrenType): ReactElement => {
 	//         })
 	//         return data
 	//     }
-	//
+
 	//     fetchProducts().then(products => setProducts(products))
 	// }, [])
 
