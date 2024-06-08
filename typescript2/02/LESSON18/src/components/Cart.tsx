@@ -11,6 +11,7 @@ const Cart = () => {
 		setConfirm(true)
 	}
 
+
 	const pageContent = confirm
 		? <h2>Thank you for your order.</h2>
 		: <>
