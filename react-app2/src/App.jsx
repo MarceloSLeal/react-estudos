@@ -5,7 +5,7 @@ import Topbar from './scenes/global/Topbar';
 import Sidebar from './scenes/global/Sidebar';
 import Dashboard from "./scenes/dashboard";
 
-// import Customers from "./scenes/customers";
+import Customers from "./scenes/customers";
 // import Employees from "./scenes/employees";
 // import Offices from "./scenes/offices";
 // import OrderDetails from "./scenes/orderdetails";
@@ -33,7 +33,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<Dashboard />} />
 
-                            {/* <Route path="/customers" element={<Customers />} /> */}
+                            <Route path="/customers" element={<Customers />} />
                             {/* <Route path="/employees" element={<Employees />} /> */}
                             {/* <Route path="/offices" element={<Offices />} /> */}
                             {/* <Route path="/orderdetails" element={<OrderDetails />} /> */}
