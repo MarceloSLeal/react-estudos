@@ -12,7 +12,7 @@ const Customers = () => {
     const colors = tokens(theme.palette.mode);
 
     const columns = [
-        { field: "id", headerName: "ID", flex: 1 },
+        { field: "id", headerName: "ID" },
         { field: "name", headerName: "NAME", flex: 1, cellClassName: "name-column--cell" },
         { field: "email", headerName: "EMAIL", flex: 1 },
         { field: "contactLastName", headerName: "CONT.LAST NAME", flex: 1 },
@@ -45,7 +45,7 @@ const Customers = () => {
                         color: colors.greenAccent[300],
                     },
                     "& .MuiDataGrid-columnHeader": {
-                        backgroundColor: `${colors.blueAccent[700]} !important`,
+                        backgroundColor: colors.blueAccent[700],
                         borderBottom: "none",
                         fontSize: 14
                     },
