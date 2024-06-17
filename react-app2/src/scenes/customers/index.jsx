@@ -12,26 +12,52 @@ const Customers = () => {
     const colors = tokens(theme.palette.mode);
 
     const columns = [
-        { field: "id", headerName: "ID" },
+        { field: "id", headerName: "ID", flex: 1 },
         { field: "name", headerName: "NAME", flex: 1, cellClassName: "name-column--cell" },
-        { field: "email", headerName: "EMAIL", flex: 1, cellClassName: "name-column--cell" },
-        { field: "contactLastName", headerName: "CONT.LAST NAME", flex: 1, cellClassName: "name-column--cell" },
-        { field: "contactFirstName", headerName: "CONT.FIRST NAME", flex: 1, cellClassName: "name-column--cell" },
-        { field: "phone", headerName: "PHONE", flex: 1, cellClassName: "name-column--cell" },
-        { field: "addressLine1", headerName: "ADRESS1", flex: 1, cellClassName: "name-column--cell" },
-        { field: "addressLine2", headerName: "ADRESS2", flex: 1, cellClassName: "name-column--cell" },
-        { field: "city", headerName: "CITY", flex: 1, cellClassName: "name-column--cell" },
-        { field: "state", headerName: "STATE", flex: 1, cellClassName: "name-column--cell" },
-        { field: "postalCode", headerName: "P.CODE", flex: 1, cellClassName: "name-column--cell" },
-        { field: "country", headerName: "COUNTRY", flex: 1, cellClassName: "name-column--cell" },
-        { field: "creditLimit", headerName: "CREDIT", flex: 1, cellClassName: "name-column--cell" },
-        { field: "employeeId", headerName: "EMP.ID", flex: 1, cellClassName: "name-column--cell" },
+        { field: "email", headerName: "EMAIL", flex: 1 },
+        { field: "contactLastName", headerName: "CONT.LAST NAME", flex: 1 },
+        { field: "contactFirstName", headerName: "CONT.FIRST NAME", flex: 1 },
+        { field: "phone", headerName: "PHONE", flex: 1 },
+        { field: "addressLine1", headerName: "ADRESS1", flex: 1 },
+        { field: "addressLine2", headerName: "ADRESS2", flex: 1 },
+        { field: "city", headerName: "CITY", flex: 1 },
+        { field: "state", headerName: "STATE", flex: 1 },
+        { field: "postalCode", headerName: "P.CODE", flex: 1 },
+        { field: "country", headerName: "COUNTRY", flex: 1 },
+        { field: "creditLimit", headerName: "CREDIT", flex: 1 },
+        { field: "employeeId", headerName: "EMP.ID", flex: 1 },
     ];
 
     return (
-        <Box>
+        <Box m="20px">
             <Header title="CUSTOMERS" subtitle="Managing Customers" />
-            <Box>
+            <Box
+                m="40px 0 0 0"
+                height="75vh"
+                sx={{
+                    "& .MuiDataGrid-root": {
+                        border: "none",
+                    },
+                    "& .MuiDataGrid-cell": {
+                        borderBotton: "none",
+                    },
+                    "& .name-column--cell": {
+                        color: colors.greenAccent[300],
+                    },
+                    "& .MuiDataGrid-columnHeader": {
+                        backgroundColor: `${colors.blueAccent[700]} !important`,
+                        borderBottom: "none",
+                        fontSize: 14
+                    },
+                    "& .MuiDataGrid-virtualScroller": {
+                        backgroundColor: colors.primary[400],
+                    },
+                    "& .MuiDataGrid-footerContainer": {
+                        borderTop: "none",
+                        backgroundColor: colors.blueAccent[700],
+                    },
+                }}
+            >
                 <DataGrid
                     rows={mockDataCustomers}
                     columns={columns}
