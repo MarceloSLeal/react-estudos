@@ -1,34 +1,30 @@
-import { Box, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import { DataGrid, GridToolbarContainer } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataCustomers } from "../../data/mockDataCustomers";
-
+import { mockDataEmployees } from "../../data/mockDataEmployees";
 import Header from "../../components/Header";
+import { useTheme } from "@mui/material";
 
-const Customers = () => {
+const Employees = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
     const columns = [
         { field: "id", headerName: "ID", flex: 0.5 },
-        { field: "name", headerName: "NAME", flex: 1, cellClassName: "name-column--cell" },
+        { field: "lastName", headerName: "LAST NAME", flex: 1, cellClassName: "name-column--cell" },
+        { field: "firstName", headerName: "FIRST NAME", flex: 1, cellClassName: "name-column--cell" },
         { field: "email", headerName: "EMAIL", flex: 1 },
-        { field: "contactLastName", headerName: "CONT.LAST NAME", flex: 1 },
-        { field: "contactFirstName", headerName: "CONT.FIRST NAME", flex: 1 },
-        { field: "phone", headerName: "PHONE", flex: 1 },
-        { field: "addressLine1", headerName: "ADRESS1", flex: 1 },
-        { field: "addressLine2", headerName: "ADRESS2", flex: 1 },
-        { field: "city", headerName: "CITY", flex: 1 },
-        { field: "state", headerName: "STATE", flex: 1 },
-        { field: "postalCode", headerName: "P.CODE", flex: 1 },
-        { field: "country", headerName: "COUNTRY", flex: 1 },
-        { field: "creditLimit", headerName: "CREDIT", flex: 1 },
-        { field: "employeeId", headerName: "EMP.ID", flex: 1 },
+        { field: "reportsTo", headerName: "REPORTS TO", flex: 1 },
+        { field: "jobTitle", headerName: "JOB TITLE", flex: 1 },
+        { field: "extension", headerName: "EXTENSION", flex: 1 },
+        { field: "officesId", headerName: "OFFICE ID", flex: 1 },
+        { field: "customersId", headerName: "CUSTOMERS ID", flex: 1 },
+
     ];
 
     return (
         <Box m="20px">
-            <Header title="CUSTOMERS" subtitle="Managing Customers" />
+            <Header title="EMPLOYEES" subtitle="List of Employees" />
             <Box
                 m="40px 0 0 0"
                 height="75vh"
@@ -54,15 +50,19 @@ const Customers = () => {
                         borderTop: "none",
                         backgroundColor: colors.blueAccent[700],
                     },
+                    "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+                        color: `${colors.grey[100]} !important`,
+                    },
                 }}
             >
                 <DataGrid
-                    rows={mockDataCustomers}
+                    rows={mockDataEmployees}
                     columns={columns}
+                    components={{ Toolbar: GridToolbarContainer }}
                 />
             </Box>
         </Box>
     )
 }
 
-export default Customers;
+export default Employees;
