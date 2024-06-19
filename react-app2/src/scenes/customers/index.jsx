@@ -2,7 +2,6 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataCustomers } from "../../data/mockDataCustomers";
-
 import Header from "../../components/Header";
 
 const Customers = () => {

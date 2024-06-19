@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbarContainer } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataEmployees } from "../../data/mockDataEmployees";
 import Header from "../../components/Header";
-import { useTheme } from "@mui/material";
 
 const Employees = () => {
     const theme = useTheme();
