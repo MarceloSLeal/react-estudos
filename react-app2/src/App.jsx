@@ -14,6 +14,7 @@ import Employees from "./scenes/employees";
 // import ProductLines from "./scenes/productlines";
 // import Products from "./scenes/products";
 //
+import Form from './scenes/form';
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
 // import Geography from "./scenes/geography";
@@ -42,6 +43,7 @@ function App() {
                             {/* <Route path="/productlines" element={<ProductLines />} /> */}
                             {/* <Route path="/products" element={<Products />} /> */}
                             {/**/}
+                            <Route path="/form" element={<Form />} />
                             {/* <Route path="/line" element={<Line />} /> */}
                             {/* <Route path="/pie" element={<Pie />} /> */}
                             {/* <Route path="/geography" element={<Geography />} /> */}
