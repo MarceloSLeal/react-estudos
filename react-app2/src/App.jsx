@@ -13,12 +13,14 @@ import Employees from "./scenes/employees";
 // import Payments from "./scenes/payments";
 // import ProductLines from "./scenes/productlines";
 // import Products from "./scenes/products";
-//
+
 import Form from './scenes/form';
 import Calendar from "./scenes/calendar";
+import { BarChart } from '@mui/icons-material';
 // import Line from "./scenes/line";
 // import Pie from "./scenes/pie";
 // import Geography from "./scenes/geography";
+import Bar from "./scenes/bar"
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -48,6 +50,7 @@ function App() {
                             {/* <Route path="/line" element={<Line />} /> */}
                             {/* <Route path="/pie" element={<Pie />} /> */}
                             {/* <Route path="/geography" element={<Geography />} /> */}
+                            <Route path="/bar" element={<Bar />} />
 
                         </Routes>
                     </main>
