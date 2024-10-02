@@ -10,6 +10,9 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2",
-    "vite": "^5.4.2"
+    "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "rollup": "^4.24.0"
   }
 }
